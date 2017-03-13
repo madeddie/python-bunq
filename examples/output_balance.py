@@ -21,7 +21,7 @@ with open(key_file, 'rb') as f:
 
 # we're using verification here, use the server_key belonging to the token used
 server_key = '-----BEGIN PUBLIC KEY-----\nxxxxxx\n-----END PUBLIC KEY-----\n'
-bunq_api = API(rsa_key, i_token, srvkey_pem=server_key)
+bunq_api = API(rsa_key, i_token, servkey_pem=server_key)
 
 # First create new session and retrieve its token, using installation token
 # you could already have a session token you could use here instead
