@@ -153,7 +153,7 @@ class API(object):
         signature = base64.b64decode(res.headers['X-Bunq-Server-Signature'])
 
         try:
-            server_key.verify(
+            self.server_key.verify(
                 signature,
                 msg.encode(),
                 padding.PKCS1v15(),
