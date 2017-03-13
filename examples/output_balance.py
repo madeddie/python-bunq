@@ -21,22 +21,23 @@ with open(key_file, 'rb') as f:
 
 # we're using verification here, use the server_key belonging to the token used
 server_key = '-----BEGIN PUBLIC KEY-----\nxxxxxx\n-----END PUBLIC KEY-----\n'
+
+# if you use an already valid session token, you can skip the new session part
 bunq_api = API(rsa_key, i_token, servkey_pem=server_key)
 
-# First create new session and retrieve its token, using installation token
-# you could already have a session token you could use here instead
+# first create new session and retrieve its token, using installation token
 r = bunq_api.query('session-server', {'secret': api_key}, verify=True)
 if r.status_code == 200:
     res = [x for x in r.json()['Response'] if list(x)[0] == 'Token'][0]
     bunq_api.token = res['Token']['token']
 
-# Retrieve the id of the first user of this account
+# retrieve the id of the first user of this account
 r = bunq_api.query('user', verify=True)
 if r.status_code == 200:
     res = [x for x in r.json()['Response'] if list(x)[0] == 'UserPerson'][0]
     user_id = res['UserPerson']['id']
 
-# Retrieve balance of first account of first user
+# retrieve balance of first account of given user
 r = bunq_api.query('user/%s/monetary-account-bank' % user_id, verify=True)
 if r.status_code == 200:
     acc_type = 'MonetaryAccountBank'
