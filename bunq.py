@@ -56,7 +56,7 @@ class API(object):
         :type endpoint: str
         :param payload: API request attributes
         :type payload: dict
-        :param method: HTTP request method
+        :param method: HTTP request method (verb)
         :type method: str
         :param verify: set to True to enable response verification
         :type verify: bool
@@ -69,6 +69,8 @@ class API(object):
                 method = 'GET'
             else:
                 method = 'POST'
+        else:
+            method = method.upper()
 
         if not endpoint.startswith('/'):
             endpoint = '/%s/%s' % (self.api_version, endpoint)
@@ -100,9 +102,9 @@ class API(object):
         headers['X-Bunq-Client-Signature'] = self.sign(msg)
 
         if payload:
-            r = requests.post(url, headers=headers, json=payload)
+            r = requests.request(method, url, headers=headers, json=payload)
         else:
-            r = requests.get(url, headers=headers)
+            r = requests.request(method, url, headers=headers)
 
         if verify:
             valid = self.verify(r)
