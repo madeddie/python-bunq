@@ -52,11 +52,13 @@ External documentation will be coming ASAP.
 TODO
 ----
 
+* tests
 * better verification of response
 * automated session creation
 * use a more lightweight crypto library, like https://github.com/sybrenstuvel/python-rsa
 * active session awareness
 * testing validity of token
+* deal with rsa key encryption
 * automagically retrieve server public key when not given
 
 Attribution
