@@ -1,7 +1,7 @@
 bunq
 ====
 
-Python wrapper for the `bunq API <https://doc.bunq.com/>`.
+Python wrapper for the `bunq API https://doc.bunq.com/`.
 
 Installation
 ------------
@@ -63,4 +63,4 @@ Attribution
 
 All code is licensed under the MIT License. See ``LICENSE``.
 
-`python3-krakenex <https://github.com/veox/python3-krakenex>` was a big inspiration.
+`python3-krakenex https://github.com/veox/python3-krakenex` was a big inspiration.
