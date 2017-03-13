@@ -4,12 +4,9 @@ from setuptools import setup, find_packages
 with open('README.rst') as f:
     readme = f.read()
 
-with open('VERSION') as f:
-    version = f.read().strip()
-
 setup(
     name='bunq',
-    version=version,
+    version='0.0.1',
     description='Simple wrapper around the bunq API',
     long_description=readme,
     author='Edwin Hermans',
