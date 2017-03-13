@@ -4,6 +4,7 @@ bunq
 Python wrapper for the `bunq API`_.
 
 .. _bunq API: https://doc.bunq.com/
+
 Installation
 ------------
 
