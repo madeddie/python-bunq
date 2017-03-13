@@ -7,7 +7,7 @@ from cryptography.hazmat.backends import default_backend
 from cryptography.hazmat.primitives import serialization, hashes
 from cryptography.hazmat.primitives.asymmetric import padding
 
-__version__ = '0.0.1'
+__version__ = '0.0.2'
 
 
 class API(object):
