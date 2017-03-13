@@ -13,36 +13,36 @@ __version__ = '0.0.1'
 class API(object):
     """Wrapper around the bunq API."""
 
-    def __init__(self, prvkey_pem, token='', srvkey_pem=''):
+    def __init__(self, privkey_pem, token='', servkey_pem=''):
         """Create an object with authentication information
 
         :param privkey_pem: user private rsa key in PEM format
         :type privkey_pem: str or bytes
         :param token: almost always a session token
         :type token: str
-        :param srvkey_pem: server public rsa key in PEM format
-        :type srvkey_pem: str or bytes
+        :param servkey_pem: server public rsa key in PEM format
+        :type servkey_pem: str or bytes
 
         """
         self.token = token
         self.uri = 'https://api.bunq.com'
         self.api_version = 'v1'
 
-        if not isinstance(prvkey_pem, bytes):
-            prvkey_pem = prvkey_pem.encode()
+        if not isinstance(privkey_pem, bytes):
+            privkey_pem = privkey_pem.encode()
 
         self.private_key = serialization.load_pem_private_key(
-            prvkey_pem,
+            privkey_pem,
             password=None,
             backend=default_backend()
         )
 
-        if srvkey_pem:
-            if not isinstance(srvkey_pem, bytes):
-                srvkey_pem = srvkey_pem.encode()
+        if servkey_pem:
+            if not isinstance(servkey_pem, bytes):
+                servkey_pem = servkey_pem.encode()
 
             self.server_key = serialization.load_pem_public_key(
-                srvkey_pem,
+                servkey_pem,
                 backend=default_backend()
             )
 
@@ -135,7 +135,7 @@ class API(object):
             print('No server public key defined, skipping verification')
             return
 
-        srv_headers = [
+        serv_headers = [
             'X-Bunq-Client-Request-Id',
             'X-Bunq-Client-Response-Id'
         ]
@@ -145,7 +145,7 @@ class API(object):
             '\n'.join(
                 ['%s: %s' % (k, v) for k, v in sorted(
                     res.headers.items()
-                ) if k in srv_headers]
+                ) if k in serv_headers]
             ),
             res.text
         )
