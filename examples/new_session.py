@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-# This code shows how to open en new session.
+# This code shows how to open a new session.
 #
 # Use a private key and accompanying installation token you
 # received earlier.
