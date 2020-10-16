@@ -1,10 +1,15 @@
-# DEPRECATED
+DEPRECATED
+==========
 
-This module hasn't been maintained nor used by me for some time. Security warnings have started popping up.
+This module hasn’t been maintained nor used by me for some time.
+Security warnings have started popping up.
 
 Use only as inspiration or starting point for your own projects.
 
-[![No Maintenance Intended](http://unmaintained.tech/badge.svg)](http://unmaintained.tech/)
+|No Maintenance Intended|
+
+.. |No Maintenance Intended| image:: http://unmaintained.tech/badge.svg
+   :target: http://unmaintained.tech/
 
 bunq
 ====
